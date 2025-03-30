@@ -305,11 +305,9 @@ def generate_correlation_plots(model_correlations, output_dir="correlation_plots
         plt.savefig(os.path.join(output_dir, f"{model_name}_correlation.png"))
         plt.close()
     
-    # Create a combined plot with a single trend line
     if len(model_correlations) > 1:
         plt.figure(figsize=(12, 8))
         
-        # Collect all data points
         all_x = []
         all_y = []
         model_points = {}
@@ -320,20 +318,16 @@ def generate_correlation_plots(model_correlations, output_dir="correlation_plots
             all_x.extend(clue_numbers)
             all_y.extend(accuracies)
         
-        # Plot points from each model with different colors
         for i, (model_name, (x_values, y_values)) in enumerate(model_points.items()):
             plt.scatter(x_values, y_values, alpha=0.7, label=model_name)
         
-        # Calculate and add a single trend line for all data
         if all_x and all_y:
             z = np.polyfit(all_x, all_y, 1)
             p = np.poly1d(z)
             
-            # Get the min and max x values to draw the line
             x_range = np.linspace(min(all_x), max(all_x), 100)
             plt.plot(x_range, p(x_range), "k--", linewidth=2, alpha=0.8, label="Overall trend")
             
-            # Add overall correlation info
             pearson_r, pearson_p = stats.pearsonr(all_x, all_y)
             plt.figtext(0.15, 0.85, f"Overall Pearson r: {pearson_r:.4f} (p={pearson_p:.4f})")
         
@@ -397,7 +391,6 @@ def main():
     
     results, total_words_by_clue_number, total_puzzles = analyze_models(args.directory, args.text, args.puzzles)
     
-    # Print results
     print(f"\nAnalyzed {total_puzzles} unique puzzles across {len(results)} models")
     
     for model_name, model_data in results.items():
@@ -412,7 +405,6 @@ def main():
                 avg_per_puzzle = total_words / model_data['file_count'] if model_data['file_count'] > 0 else 0
                 print(f"  Clue {clue_number}: {accuracy:.4f} (words: {int(total_words)}, avg per puzzle: {avg_per_puzzle:.2f})")
     
-    # Analyze correlations
     print("\n=== Correlation Analysis ===")
     model_correlations, overall_correlation = analyze_correlations(results)
     
@@ -438,7 +430,6 @@ def main():
         corr_direction = "positive" if pearson_r > 0 else "negative"
         print(f"Interpretation: {corr_strength} {corr_direction} correlation between clue number and accuracy")
     
-    # Analyze accuracy by clue range
     print("\n=== Accuracy by Clue Range ===")
     range_accuracy = analyze_accuracy_by_clue_range(results, total_words_by_clue_number)
     
@@ -449,7 +440,6 @@ def main():
             total_words = sum(words for _, _, words in models_data)
             print(f"Clues {range_name}: {avg_accuracy:.4f} average accuracy (across {len(models_data)} models, {int(total_words)} total words)")
     
-    # Generate plots if requested
     if args.plot and model_correlations:
         print("\nGenerating correlation plots...")
         generate_correlation_plots(model_correlations)

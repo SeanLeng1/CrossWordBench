@@ -5,6 +5,7 @@
 <p align="center">
 <a href="">[📄 Paper]</a>
 <a href="https://huggingface.co/datasets/HINT-lab/CrossWordBench">[🤗 HF Dataset]</a>
+<a href="https://huggingface.co/datasets/HINT-lab/CrossWordBench-Results">[📝 Evaluation Results]</a>
 </p>
 
 ---
@@ -62,7 +63,8 @@ FIREWORKS_AI_API_KEY=your_key_here
 ###  Data Generation 
 We have host CrossWordBench evaluation data on [Huggingface](https://huggingface.co/datasets/HINT-lab/CrossWordBench), which can be directly used for evaluation.
 
-We also provide code to automatically generate crossword puzzles. While this code is available, please be aware of potential **data contamination** if you use the generated data for training purposes.
+> [!NOTE]
+> We also provide code to automatically generate crossword puzzles. While this code is available, please be aware of potential **data contamination** if you use the generated data for training purposes.
 
 ---
 #### Word-Clue Pairs curation
@@ -86,6 +88,9 @@ bash scripts/gen_puzzle.sh
 
 
 ### Evaluation
+
+You can find our evaluation results on [Huggingface](https://huggingface.co/datasets/HINT-lab/CrossWordBench-Results).
+
 ---
 #### Supported Models
 Currently, we support only API-based models and models that can be deployed online using **vLLM**, in order to maintain a unified inference interface.
@@ -96,7 +101,7 @@ You can find the list of supported models in the [vLLM documentation](https://do
 #### Instructions
 **Step 1**: Host a model using vLLM.
 
-As mentioned, only API-accessible models or models deployable with vLLM are supported. If you wish to add your own custom model, you can implement it in ```eval/model.py``` and adjust the prompt template in ```eval/template.py```.
+As mentioned, only API-based models or models deployable with vLLM are supported. If you wish to add your own custom model, you can implement it in ```eval/model.py``` and adjust the prompt template in ```eval/template.py```.
 
 We also provide an example bash script ```scripts/deploy.sh``` to help you set up a vLLM server.
 

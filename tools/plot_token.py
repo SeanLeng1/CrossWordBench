@@ -107,18 +107,15 @@ fig = px.bar(
 )
 
 fig.update_traces(
-    width=0.4,  # Slightly increased bar width
+    width=0.4,  
     marker_line_width=1,  
     marker_line_color='black'  
 )
 
-# Get list of unique models after filtering
 model_list = df['Model'].unique().tolist()
 
-# Identify reasoning models (mapped names) for highlighting
 reasoning_model_names = {MODEL_NAME_MAP.get(m, m) for m in REASONING_MODELS}
 
-# Create tick text with red highlighting for reasoning models
 ticktext = [
     f"<span style='color:red'>{model}</span>" if model in reasoning_model_names else model
     for model in model_list
@@ -132,7 +129,6 @@ fig.update_xaxes(
     showgrid=False,
     tickangle=30,  
     automargin=True,
-    # Add tickmode and ticktext for highlighted reasoning models
     tickmode='array',
     tickvals=model_list,
     ticktext=ticktext
@@ -148,9 +144,8 @@ fig.update_yaxes(
 )
 
 fig.update_layout(
-    # Fix the gap between bars in the same group
-    bargap=0.2,         # Space between different model groups
-    bargroupgap=0.0,    # Set to 0 to remove the gap between bars in the same group
+    bargap=0.2,         
+    bargroupgap=0.0,    
     title=dict(
         text=f'Token Usage Per {title_name} for 7x7 and 14x14 Puzzles',
         font=dict(size=60, family='Palatino, serif', color='black', weight='bold'),
