@@ -92,3 +92,4 @@ eval_results/*
 .ruff_cache/*
 scripts/deploy2.sh
 notes.txt
+scripts/README.md
