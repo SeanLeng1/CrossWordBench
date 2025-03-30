@@ -84,7 +84,7 @@ if __name__ == '__main__':
     )
     if args.push:
         data_eval.push_to_hub(
-            repo_id='JixuanLeng/CrossWordBench',
+            repo_id='your_repo_id',
             split=args.difficulty,  # This becomes the split name (like "test")
             config_name=args.subject,  # This becomes the subset name (like "subset1") 
             private=True
