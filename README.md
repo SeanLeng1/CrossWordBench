@@ -174,7 +174,8 @@ These outputs help analyze both high-level performance and per-puzzle behavior.
 
 We provide the tools used to generate all the figures presented in our paper. You can find them in the `tools` directory.
 
-> ⚠️ Note: You may need to modify the scripts to fit your working environment and result structure, as they assume a complete `eval_results` folder is available.
+> [!NOTE]
+> You may need to modify the scripts to fit your working environment and result structure, as they assume a complete `eval_results` folder is available.
 
 
 ## References and Acknowledgements
