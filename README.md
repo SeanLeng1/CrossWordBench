@@ -179,7 +179,8 @@ We provide the tools used to generate all the figures presented in our paper. Yo
 
 ## References and Acknowledgements
 
-Our data generation pipeline is built upon [genxword](https://github.com/riverrun/genxword).
+Our data generation pipeline builds upon [genxword](https://github.com/riverrun/genxword), an open-source project licensed under the GNU General Public License v3.0 (GPLv3).
+
 We sincerely thank the project and its contributors for their valuable work.
 
 
