@@ -118,13 +118,13 @@ bash scripts/run_eval.sh -m gpt-4o-2024-11-20 -s english -d 7x7 -t img_cot
 
 # You can also evaluate multiple tasks, grid sizes, and prompt types at once. For example:
 
-# Evaluate both "img_cot" and "interactive" tasks
+# Evaluate both "img_cot" and "interactive" prompt templates
 bash scripts/run_eval.sh -m gpt-4o-2024-11-20 -s english -d 7x7 -t img_cot,interactive
 
 # Evaluate on both English and Chinese puzzles
 bash scripts/run_eval.sh -m gpt-4o-2024-11-20 -s english,chinese -d 7x7 -t img_cot,interactive
 
-# Evaluate on multiple languages and grid sizes
+# Evaluate on multiple categories and grid sizes
 bash scripts/run_eval.sh -m gpt-4o-2024-11-20 -s english,chinese -d 7x7,14x14 -t img_cot,interactive
 
 # Use -h to see available options and parameters
@@ -148,7 +148,7 @@ You can find more experimental features in ```eval/template.py```. If you want t
 
 ```shell
 # Prompt template abbreviations (defined in template.py):
-# Below are a few commonly used templates:
+# Below are the templates used in our paper
 -t img_cot,text_cot,interactive,extraction
 ```
 
