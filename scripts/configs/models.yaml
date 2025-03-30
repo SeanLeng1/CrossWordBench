@@ -1,0 +1,364 @@
+# Model configurations for CrossWordBench
+# This file contains configurations for all supported models
+
+# default for all models
+default:
+  parallel: 32
+  max_completion_tokens: 
+    7x7: 16384
+    14x14: 16384
+    21x21: 16384
+  parsing_model: o3-mini-2025-01-31
+  mm_limit: 4
+  reasoning_effort: high
+
+models:
+  # OpenAI models - API keys should be set in environment variables
+  "gpt-4o-2024-11-20":
+    api_type: openai
+    parallel: 32
+    max_completion_tokens:
+      7x7: 16384
+      14x14: 16384
+      21x21: 16384
+
+  "gpt-4-turbo":
+    api_type: openai
+    parallel: 32
+    max_completion_tokens:
+      7x7: 4096
+      14x14: 4096
+      21x21: 4096
+
+  "o3-mini":
+    api_type: openai
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    reasoning_effort: medium
+    temperature: 0.6
+
+  # Anthropic models - API keys should be set in environment variables
+  "anthropic/claude-3-5-sonnet-20241022":
+    api_type: anthropic
+    parallel: 8
+    max_completion_tokens:
+      7x7: 8192
+      14x14: 8192
+      21x21: 8192
+
+  "anthropic/claude-3-7-sonnet-20250219":
+    api_type: anthropic
+    parallel: 8
+    max_completion_tokens:
+      7x7: 64000
+      14x14: 64000
+      21x21: 64000
+    budget_tokens: 60000
+    # 60000
+
+  # Google models - API keys should be set in environment variables
+  "gemini/gemini-2.0-pro-exp-02-05":
+    api_type: google
+    parallel: 1
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "gemini/gemini-2.0-flash":
+    api_type: google
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "gemini/gemini-2.0-flash-thinking-exp":
+    api_type: google
+    parallel: 1
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  # Fireworks models
+  "fireworks_ai/accounts/fireworks/models/deepseek-v3":
+    api_type: fireworks
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+
+  "fireworks_ai/accounts/fireworks/models/deepseek-r1":
+    api_type: fireworks
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  "fireworks_ai/accounts/fireworks/models/llama-v3p1-405b-instruct":
+    api_type: fireworks
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+
+  # Deepseek models
+  "deepseek/deepseek-chat":
+    api_type: deepseek
+    parallel: 32
+    max_completion_tokens:
+      7x7: 8192
+      14x14: 8192
+      21x21: 8192
+
+  "deepseek/deepseek-reasoner":
+    api_type: deepseek
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  # vLLM models - require specifying API base URL with -v parameter
+  "Qwen/Qwen2-VL-72B-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "Qwen/Qwen2.5-VL-72B-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "Qwen/Qwen2.5-VL-7B-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "Qwen/Qwen2.5-VL-3B-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "OpenGVLab/InternVL2_5-78B-MPO":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "mistralai/Pixtral-Large-Instruct-2411":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "llava-hf/llava-onevision-qwen2-72b-ov-chat-hf":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "deepseek-ai/deepseek-vl2":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 2048
+      14x14: 2048
+      21x21: 2048
+
+  "openbmb/MiniCPM-V-2_6":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "microsoft/Phi-3.5-vision-instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "rhymes-ai/Aria":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "meta-llama/Llama-3.2-90B-Vision-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "meta-llama/Llama-3.3-70B-Instruct":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "deepseek-ai/DeepSeek-R1-Distill-Llama-70B":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  "Qwen/QwQ-32B-Preview":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "Qwen/QwQ-32B":
+    api_type: vllm
+    parallel: 16
+    max_completion_tokens:
+      7x7: 32768
+      14x14: 32768
+      21x21: 32768
+    temperature: 0.6
+
+  "Qwen/QVQ-72B-Preview":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+
+  "allenai/Molmo-72B-0924":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 2048
+      14x14: 2048
+      21x21: 2048
+
+  "qihoo360/TinyR1-32B-Preview":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  "nvidia/NVLM-D-72B":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+
+  "Fancy-MLLM/R1-Onevision-7B":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+  
+  "microsoft/phi-4":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 10000
+      14x14: 10000
+      21x21: 10000
+
+  "microsoft/Phi-4-multimodal-instruct":
+    api_type: vllm_lora
+    parallel: 32
+    max_completion_tokens:
+      7x7: 10000
+      14x14: 10000
+      21x21: 10000
+    lora_module: vision
+  
+  "qihoo360/Light-R1-32B":
+    api_type: vllm
+    parallel: 8
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+    temperature: 0.6
+  
+  "Open-Reasoner-Zero/Open-Reasoner-Zero-32B":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    temperature: 0.6
+
+  "RekaAI/reka-flash-3":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 20480
+      14x14: 20480
+      21x21: 20480
+    temperature: 0.6
+
+  "google/gemma-3-27b-it":
+    api_type: vllm
+    parallel: 32
+    max_completion_tokens:
+      7x7: 8192
+      14x14: 8192
+      21x21: 8192
+
