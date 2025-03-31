@@ -222,6 +222,7 @@ def main():
         os.makedirs('../plots', exist_ok=True)
         output_path = '../plots/reasoning_effort_bar.svg'
         fig.write_image(output_path, format='svg', scale=1, width=600, height=300)
+        fig.write_image('../plots/reasoning_effort_bar.pdf', format='pdf', scale=1, width=600, height=300)
         print(f"Bar plot successfully saved to {os.path.abspath(output_path)}")
 
 
