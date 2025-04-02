@@ -186,7 +186,7 @@ We sincerely thank the project and its contributors for their valuable work.
 
 
 ## Citation
-Please cite our paper if you find the repo helpful in your work:
+Please consider citing us if you find the repo helpful in your work:
 ```bibtex
 @misc{leng2025crosswordbenchevaluatingreasoningcapabilities,
       title={CrossWordBench: Evaluating the Reasoning Capabilities of LLMs and LVLMs with Controllable Puzzle Generation}, 
