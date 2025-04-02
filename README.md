@@ -3,7 +3,7 @@
 
 # <p align="center"><b>CrossWordBench: Evaluating the Reasoning Capabilities of LLMs and LVLMs with Controllable Puzzle Generation</b></p>
 <p align="center">
-<a href="">[📄 Paper]</a>
+<a href="https://arxiv.org/abs/2504.00043">[📄 Paper]</a>
 <a href="https://huggingface.co/datasets/HINT-lab/CrossWordBench">[🤗 HF Dataset]</a>
 <a href="https://huggingface.co/datasets/HINT-lab/CrossWordBench-Results">[📝 Evaluation Results]</a>
 </p>
@@ -188,6 +188,14 @@ We sincerely thank the project and its contributors for their valuable work.
 ## Citation
 Please cite our paper if you find the repo helpful in your work:
 ```bibtex
-
+@misc{leng2025crosswordbenchevaluatingreasoningcapabilities,
+      title={CrossWordBench: Evaluating the Reasoning Capabilities of LLMs and LVLMs with Controllable Puzzle Generation}, 
+      author={Jixuan Leng and Chengsong Huang and Langlin Huang and Bill Yuchen Lin and William W. Cohen and Haohan Wang and Jiaxin Huang},
+      year={2025},
+      eprint={2504.00043},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2504.00043}, 
+}
 ```
 
