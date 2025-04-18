@@ -129,6 +129,17 @@ models:
       21x21: 100000
     temperature: 0.6
 
+  # XAI models
+  "xai/grok-3-mini-beta":
+    api_type: xai
+    parallel: 32
+    max_completion_tokens:
+      7x7: 100000
+      14x14: 100000
+      21x21: 100000
+    reasoning_effort: high
+    temperature: 0.6
+
   # vLLM models - require specifying API base URL with -v parameter
   "Qwen/Qwen2-VL-72B-Instruct":
     api_type: vllm
